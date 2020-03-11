@@ -23,7 +23,8 @@
      .particle .rhombus.one{ width:20px;height:20px;transform: rotate(0deg) }
      .void{
        border:1px solid #404040;position:absolute;width:34%;height:30%;border-radius:50%;
-       top:0;right:0;bottom:0;left:0;margin:auto;max-width:500px;max-height:500px;transform: rotate(55deg);
+       top:0;right:0;bottom:0;left:0;margin:auto;max-width:350px;max-height:350px;
+       transform:perspective(90px) rotate(85deg) translate3d(0px, 0px, -124px);transform-style:preserve-3d;
      }
      .void .wrap-particle:nth-child(1){ top:0;right:auto;left:-34px;bottom:0;transform:scale(0.75); }
      .void .wrap-particle:nth-child(3){ top:0;right:-34px;left:auto;bottom:0;transform:scale(0.75); }
@@ -32,14 +33,21 @@
      .void .connectingLine{ width:1px;height:100%;position:absolute;top:0;right:0px;bottom:0px;left:0px;background-color:#fbff00;margin:auto; }
      .void .connectingLine.horizontal{ width:100%;height:1px; }
 
-     .void:nth-child(2){ transform: scale(1.5) rotate(25deg); }
-     .void:nth-child(3){ transform: scale(2.2); }
+     .void:nth-child(2){ transform:perspective(180px) scale(1) rotate(25deg) translate3d(0px,0px,0px); }
+     .void:nth-child(3){ transform:perspective(0px) scale(2.2) translate3d(0px, 0px, 68px); }
 
+    .space{ position:absolute;margin:auto;top:0;right:0;bottom:0;left:0;transform:perspective(0px) rotate3d(0,1,0,0deg) translate3d(0px, 0px, 0px);transform-style: preserve-3d; }
+    @keyframes animrotate{
+      from{ transform:rotate3d(0,1,0,0deg) }
+      50%{ transform:rotate3d(0,1,0,180deg)}
+      to{ transform:rotate3d(0,1,0,360deg) }
+    }
+    .space{ animation: 8s infinite cubic-bezier(.5,.21,.67,.84) animrotate}
 /*.void{display:none}*/
   </style>
 </head>
 <body>
-  <!-- <div class="space"></div> -->
+  <div class="space">
   <div class="void">
     <div class="wrap-particle">
       <div class="particle">
@@ -156,6 +164,7 @@
     </div>
     <div class="connectingLine vertical"></div>
     <div class="connectingLine horizontal"></div>
+  </div>
   </div>
 <!-- <div class="wrap-particle">
   <div class="particle">
