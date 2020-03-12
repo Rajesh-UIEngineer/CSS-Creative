@@ -42,7 +42,15 @@
       50%{ transform:rotate3d(0,1,0,180deg)}
       to{ transform:rotate3d(0,1,0,360deg) }
     }
-    .space{ animation: 8s infinite cubic-bezier(.5,.21,.67,.84) animrotate}
+    @keyframes animrotatecircle{
+      from{ transform:rotate3d(0,0,1,0deg) }
+      50%{ transform:rotate3d(0,0,1,180deg)}
+      to{ transform:rotate3d(0,0,1,360deg) }
+    }
+    .wrap-particle{ animation: 12s infinite linear animrotatecircle  }
+    .wrap-particle{ }
+    .space{ animation: 12s infinite cubic-bezier(.5,.21,.67,.84) animrotate}
+    /* .void:nth-child(1), .void:nth-child(3){ display:none } */
 /*.void{display:none}*/
   </style>
 </head>
